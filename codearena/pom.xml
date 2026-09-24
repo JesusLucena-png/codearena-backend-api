@@ -29,69 +29,192 @@
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+
 	<dependencies>
+
+		<!--
+            ACTUATOR:
+            Permite monitorear y obtener información sobre el estado de la aplicación.
+            Expone endpoints como /actuator/health, /actuator/info, etc.
+            Útil para verificar si la API está funcionando correctamente.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+		<!--
+            DATA JPA:
+            Permite trabajar con bases de datos utilizando JPA e Hibernate.
+            Facilita la creación de entidades (@Entity), repositorios
+            (JpaRepository) y operaciones CRUD sin escribir SQL manualmente.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!--
+            SECURITY:
+            Añade Spring Security para proteger la aplicación.
+            Permite implementar autenticación, autorización, manejo de usuarios,
+            contraseñas, roles y posteriormente mecanismos como JWT.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+		<!--
+            VALIDATION:
+            Permite validar los datos recibidos por la API.
+            Utiliza anotaciones como @NotNull, @NotBlank, @Size, @Email, etc.
+            Se puede combinar con @Valid en los controladores.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<!--
+            WEB MVC:
+            Permite crear aplicaciones web y APIs REST con Spring MVC.
+            Incluye elementos como @RestController, @GetMapping, @PostMapping,
+            @PutMapping, @DeleteMapping y manejo de peticiones HTTP.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+
+		<!--
+            DEVTOOLS:
+            Proporciona herramientas para facilitar el desarrollo.
+            Permite, entre otras cosas, reinicios automáticos de la aplicación
+            cuando se detectan cambios en el código.
+
+            runtime:
+            Se utiliza durante la ejecución, pero no es necesaria para compilar
+            la aplicación.
+
+            optional:
+            Indica que esta dependencia no debe considerarse necesaria para
+            los proyectos que dependan de este proyecto.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+
+		<!--
+            POSTGRESQL:
+            Driver JDBC que permite que Spring Boot se conecte
+            a una base de datos PostgreSQL.
+
+            runtime:
+            El driver se necesita cuando la aplicación se ejecuta
+            y establece la conexión con PostgreSQL.
+        -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+
+		<!--
+            LOMBOK:
+            Reduce código repetitivo en las clases Java.
+            Permite utilizar anotaciones como @Getter, @Setter,
+            @NoArgsConstructor, @AllArgsConstructor y @Builder.
+
+            optional:
+            Indica que Lombok es una herramienta de desarrollo
+            y no una dependencia necesaria para los usuarios del proyecto.
+        -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+
+		<!-- ==================== DEPENDENCIAS DE PRUEBA ==================== -->
+
+		<!--
+            ACTUATOR TEST:
+            Proporciona herramientas para realizar pruebas relacionadas
+            con Spring Boot Actuator y sus funcionalidades.
+
+            test:
+            Esta dependencia solamente se utiliza durante las pruebas.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--
+            DATA JPA TEST:
+            Proporciona herramientas para probar componentes relacionados
+            con Spring Data JPA y la persistencia de datos.
+
+            test:
+            Solo está disponible durante la ejecución de las pruebas.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--
+            SECURITY TEST:
+            Proporciona herramientas para probar funcionalidades de
+            Spring Security, como autenticación y autorización.
+
+            test:
+            Solo se utiliza durante las pruebas.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--
+            VALIDATION TEST:
+            Proporciona herramientas para realizar pruebas relacionadas
+            con la validación de datos de Spring.
+
+            test:
+            Solo se utiliza durante las pruebas.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--
+            WEB MVC TEST:
+            Proporciona herramientas para probar controladores,
+            endpoints REST y comportamiento de Spring MVC.
+
+            test:
+            Solo se utiliza durante las pruebas.
+        -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
