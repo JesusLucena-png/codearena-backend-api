@@ -1,4 +1,4 @@
-package codearena.infrastructure.adapter.out.persistence.repository;
+package codearena.infrastructure.adapter.out.persistence.adapter;
 
 /*
  * RUTA:

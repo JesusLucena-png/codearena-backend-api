@@ -38,9 +38,9 @@ package codearena.application.service;
  * PostgreSQL
  */
 
+import codearena.application.usecase.ExampleUseCaseImpl;
 import codearena.domain.model.ExampleModel;
 import codearena.domain.port.in.ExampleUseCase;
-import codearena.domain.port.out.ExampleRepositoryPort;
 import org.springframework.stereotype.Service;
 
 /*
@@ -50,7 +50,7 @@ import org.springframework.stereotype.Service;
  * Además, permite que Spring gestione la inyección de sus dependencias.
  */
 @Service
-public class ExampleService implements ExampleUseCase {
+public class ExampleService implements ExampleUseCase{
 
     /*
      * PUERTO DE SALIDA:
@@ -60,7 +60,7 @@ public class ExampleService implements ExampleUseCase {
      *
      * ExampleService no conoce la implementación concreta.
      */
-    private final ExampleRepositoryPort repositoryPort;
+    private final ExampleUseCaseImpl exampleUseCaseImpl;
 
     /*
      * INYECCIÓN DE DEPENDENCIAS:
@@ -70,8 +70,8 @@ public class ExampleService implements ExampleUseCase {
      * Spring proporcionará automáticamente la implementación
      * correspondiente del puerto.
      */
-    public ExampleService(ExampleRepositoryPort repositoryPort) {
-        this.repositoryPort = repositoryPort;
+    public ExampleService(ExampleUseCaseImpl exampleUseCaseImpl) {
+        this.exampleUseCaseImpl = exampleUseCaseImpl;
     }
 
     /*
@@ -84,6 +84,6 @@ public class ExampleService implements ExampleUseCase {
      */
     @Override
     public ExampleModel getExample(Long id) {
-        return repositoryPort.findById(id);
+        return exampleUseCaseImpl.getExample(id);
     }
 }

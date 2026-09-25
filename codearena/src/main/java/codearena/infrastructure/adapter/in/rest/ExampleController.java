@@ -47,8 +47,8 @@ package codearena.infrastructure.adapter.in.rest;
  * PostgreSQL
  */
 
+import codearena.application.service.ExampleService;
 import codearena.domain.model.ExampleModel;
-import codearena.domain.port.in.ExampleUseCase;
 import org.springframework.web.bind.annotation.*;
 
 /*
@@ -78,7 +78,7 @@ public class ExampleController {
      * Esto mantiene desacoplado el adaptador REST de
      * la implementación concreta del caso de uso.
      */
-    private final ExampleUseCase exampleUseCase;
+    private final ExampleService exampleService;
 
     /*
      * INYECCIÓN DE DEPENDENCIAS:
@@ -86,8 +86,8 @@ public class ExampleController {
      * Spring proporciona la implementación de ExampleUseCase,
      * que en nuestra estructura será ExampleService.
      */
-    public ExampleController(ExampleUseCase exampleUseCase) {
-        this.exampleUseCase = exampleUseCase;
+    public ExampleController(ExampleService exampleService) {
+        this.exampleService = exampleService;
     }
 
     /*
@@ -112,6 +112,6 @@ public class ExampleController {
          *
          * Aquí no se realiza lógica de negocio ni acceso a la BD.
          */
-        return exampleUseCase.getExample(id);
+        return exampleService.getExample(id);
     }
 }
